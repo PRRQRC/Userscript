@@ -4,18 +4,18 @@ import {USERSCRIPT_REVISION} from './constants.js';
 import {lang} from './lang/language.js';
 
 export const HUDToast = Toastify({
-    text: 'PlaceNL Userscript',
+    text: 'PRRQRC Userscript',
     duration: -1,
     close: false,
     gravity: 'bottom',
     position: 'right',
     style: {
-        background: '#e17000',
+        background: 'white',
         opacity: 0.75,
-        color: 'white',
+        color: 'black',
         borderWidth: '2px',
         borderStyle: 'solid',
-        borderImage: 'linear-gradient(180deg, red 33.3%, white 33.3%, white 66.6%, mediumblue 66.6%) 1 1',
+        borderColor: 'black',
         zIndex: 100000,
         transition: 'none'
     }
@@ -33,7 +33,7 @@ export function setHUDBody(body) {
 }
 
 function reshowHUD() {
-    HUDToast.options.text = `PlaceNL Userscript (version ${USERSCRIPT_REVISION.slice(0, 7)}${(typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACENL_USERSCRIPT_AUTO_UPDATER ? '-auto' : ''}) | ${HUDToast.title}\n${HUDToast.body}`;
+    HUDToast.options.text = `PRRQRC Userscript (version ${USERSCRIPT_REVISION.slice(0, 7)}${(typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACENL_USERSCRIPT_AUTO_UPDATER ? '-auto' : ''}) | ${HUDToast.title}\n${HUDToast.body}`;
     HUDToast.hideToast();
     HUDToast.toastElement.parentNode.removeChild(HUDToast.toastElement);
     HUDToast.showToast();
