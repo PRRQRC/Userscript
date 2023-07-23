@@ -37,7 +37,7 @@ export function getIncorrectPixels(client) {
         }
     }
 
-    console.log(`Pixel count: ${pixelCount}; Wrong pixels: ${wrong.length} (${(wrong.length / pixelCount * 100).toFixed(2)}%); Ignoring non-black white pixels: ${((wrong.length - nonWhiteCount) / pixelCount * 100).toFixed(2) }`);
+    console.log(`Pixel count: ${pixelCount}; Wrong pixels: ${wrong.length} (${(100 - (wrong.length / pixelCount * 100)).toFixed(2)}%); Ignoring non-black white pixels: ${(100 - ((wrong.length - nonWhiteCount) / pixelCount * 100)).toFixed(2) }%`);
     return shuffle(wrong, 'desc').map((i) => i[0]);
 }
 
