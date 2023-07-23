@@ -24,7 +24,10 @@ export function getIncorrectPixels(client) {
             // this pixel is right
             if (r === currentR && g === currentG && b === currentB) continue;
 
-            let priority = getPriority(orderPriority.data[i], orderPriority.data[i + 1], orderPriority.data[i + 2], orderPriority.data[i + 3]);
+            const black = (currentR === 0 && currentG === 0 && currentB === 0);
+            const reset = ((r === 255 && g === 255 && b === 255) && !black); // white; decrease priority
+
+            let priority = (reset) ? 0 : getPriority(orderPriority.data[i], orderPriority.data[i + 1], orderPriority.data[i + 2], orderPriority.data[i + 3]);
             priority += Math.floor(Math.random() * 10_000); // increase randomness
             wrong.push([[x, y, [r, g, b]], priority]);
         }
